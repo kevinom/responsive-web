@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A responsive web page</title>
+  <link href='http://fonts.googleapis.com/css?family=Helvetica:300,700' rel='stylesheet' type='text/css'>
+      <style type="text/css" media="screen, projection">
+      /* http://meyerweb.com/eric/tools/css/reset/
+      v2.0 | 20110126
+      License: none (public domain)
+      */
+      html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0;    padding: 0;    border: 0; font-size: 100%; font: inherit;    vertical-align: baseline; }
+      
+      /* HTML5 display-role reset for older browsers */
+      article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+      body { line-height: 1; }
+      ol, ul { list-style: none; }
+      blockquote, q { quotes: none; }
+      blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+      table {    border-collapse: collapse; border-spacing: 0; }
+      
+      body {
+      font: normal 100%;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+      font-size: 1.125em;
+      min-width: 10em;
+      }
+      
+      header {
+      padding: 0.1em 0.2em;
+      
+      background-image: linear-gradient(top, rgb(79,79,79) 22%, rgb(49,49,49) 65%);
+      background-image: -o-linear-gradient(top, rgb(79,79,79) 22%, rgb(49,49,49) 65%);
+      background-image: -moz-linear-gradient(top, rgb(79,79,79) 22%, rgb(49,49,49) 65%);
+      background-image: -webkit-linear-gradient(top, rgb(79,79,79) 22%, rgb(49,49,49) 65%);
+      background-image: -ms-linear-gradient(top, rgb(79,79,79) 22%, rgb(49,49,49) 65%);
+      }
+      
+      header h1 {
+      display: block;
+      font-weight: bold;
+      font-size: 1.14em;
+      padding: 0.5em 0.25em;
+      text-shadow: 0 -1.5px 1.5px #222;
+      color: #eef;
+      }
+      
+      header ul {
+      display: none;
+      padding: 0 0 0.25em 0.75em;
+      }
+      
+      header li {
+      display: block;
+      padding: 0 0 0.5em 0.25em;
+      }
+      
+      header li a {
+      text-decoration: none;
+      font-size: 0.875em;
+      font-weight: 300;
+      padding: 0 0 0.5em 0.25em;
+      text-shadow: 0 -1px 0 #000;
+      color: #ccc;
+      }
+      
+      header li a:active {
+      text-shadow: 0 -1px 1px #555, 0 1px 1px #eee;
+      color: #000;
+      }
+      
+      header a.button{
+      font-size: 2em;
+      text-decoration: none;
+      font-weight: 700;
+      color: #eef;
+      text-shadow: 0 -1.5px 1.5px #222;
+      padding: 0.125em 0 0 0.25em;
+      position: absolute;
+      top: 0;
+      right: 0.2em;
+      }
+      
+      header a.button:active {
+      text-shadow: 0 -1.5px 1.5px #555, 0 1.5px 2px #eee;
+      color: #000;
+      }
+      
+      .articles {
+      width: 100%;
+      }
+      
+      .articles .article {
+      display: inline-block;
+      width: 100%;
+      margin: 0.5em 0;
+      line-height: 1.4;
+      }
+      
+      .article h2 {
+      font-size: 1.5em;
+      margin: 0 0.3em;
+      padding: 0 0 0.3em 0;
+      }
+      
+      .article p {
+      margin: 0.5em 0.5em 0 0.5em;
+      }
+      
+      .sidebar {
+      padding: 0.5em;
+      font-size: 0.875em;
+      line-height: 1.2;
+      background-color: #eef;
+      
+      -webkit-box-shadow: rgba(0, 0, 0, .25) 0 0.0625em 0.125em;
+      -moz-box-shadow: rgba(0, 0, 0, .25) 0 0.0625em 0.125em;
+      -o-box-shadow: rgba(0, 0, 0, .25) 0 0.0625em 0.125em;
+      box-shadow: rgba(0, 0, 0, .25) 0 0.0625em 0.125em;
+      
+      background: #fff; /* Solid background color as a fallback for IE */
+      background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#eef));
+      background: -moz-linear-gradient(top, #fff, #eef);
+      background: -o-linear-gradient(top, #fff, #eef);
+      background: linear-gradient(top, #fff, #eef);
+      
+      -webkit-border-radius: 0.125em;
+      -moz-border-radius: 0.125em;
+      -o-border-radius: 0.125em;
+      border-radius: 0.125em;
+      }
+      
+      .sidebar h2 {
+      font-size: 1.175em;
+      padding: 0 0 0.1em 0;
+      }
+      
+      /* Media queries
+      */
+      @media screen and (min-width: 30.1em) {
+      .articles {
+      width: auto;
+      -moz-column-count: 1;
+      -moz-column-gap: 1em;
+      -webkit-column-count: 1;
+      -webkit-column-gap: 1em;
+      column-count: 1;
+      column-gap: 1em;
+      }
+      .sidebar {
+      float: right;
+      width: 10em;
+      margin: 0 0 0 1em;
+      line-height: 1.2;
+      }
+      
+      .sidebar h2 {
+      font-size: 1.3em;
+      }
+      }
+      
+      @media screen and (min-width: 50.1em) {
+      header h1 {
+      display: inline-block;
+      }
+      
+      header ul {
+      display: inline-block;
+      visibility: visible;
+      }
+      
+      header li {
+      display: inline-block;
+      visibility: visible;
+      }
+      
+      header a.button {
+      visibility: hidden;
+      }
+      
+      .articles {
+      -moz-column-count: 2;
+      -moz-column-gap: 1em;
+      -webkit-column-count: 2;
+      -webkit-column-gap: 1em;
+      column-count: 2;
+      column-gap: 1em;
+      }
+      }
+      
+      @media screen and (min-width: 70.1em) {
+      header li a {
+      font-size: 1em;
+      }
+      
+      .page {
+      margin: 0 auto;
+      max-width: 83em;
+      }
+      .articles {
+      -moz-column-count: 3;
+      -moz-column-gap: 1em;
+      -webkit-column-count: 3;
+      -webkit-column-gap: 1em;
+      column-count: 3;
+      column-gap: 1em;
+      }
+      }
+      </style>
+      
+      <script type="text/javascript" language="javascript">
+      function toggleDisplay(id) {
+      var elem = document.getElementById(id);
+      if ( elem.style.display == 'block' ) {
+      elem.style.display = 'none';
+      } else {
+      elem.style.display = 'block';
+      }
+      }
+      </script>
+    </head>
+<body>
+<div class="page">
+<header>
+<h1>Kevin's Journal</h1>
+<ul id="menu">
+<li><a href="#day1">Tues 9 Aug 2016</a></li>
+<li><a href="#day2">Wed 10 Aug 2016</a></li>
+<li><a href="#day3">Thu 11 Aug 2016</a></li>
+<li><a href="#day4">Fri 12 Aug 2016</a></li>
+<li><a href="#day5">Sat 13 Aug 2016</a></li>
+<li><a href="#day6">Sun 14 Aug 2016</a></li>
+</ul>
+<a href="#" class="button" id="mobile-menu"
+onClick="toggleDisplay('menu');">&equiv;</a>
+</header>
+
+<div class="sidebar">
+<h2>Vancouver, Summer 2016</h2>
+<p>Abstract &mdash; This webpage describes my brother's trip to Vancouver in the summer of 2016. The page is an example of a responsive web page that automatically sizes according to the dimensions of the display.</p>
+</div>
+<div class="articles">
+    <div class="article" id="days">
+    <a name="day1"></a>
+    <h2>Tuesday 9 August 2016</h2>
+    <p>Terry arrives on Cathay Pacific after a gruelling 34 hour trip via Hong Kong.
+        Clouds right down to the runway.
+        Gail and Kevin park next to the runway and see the plane land.</p>
+        <p>Terry comes to watch Kevin play Tuesday night doubles and falls asleep watching some of the Olympics on the club's TV.</p>
+        <p>I don't blame him!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis dolor eu eleifend tincidunt. Etiam nec vestibulum arcu. Nulla facilisi. Mauris luctus efficitur odio ut bibendum. Donec bibendum elit in dolor tincidunt, quis cursus magna convallis. Donec venenatis aliquet lectus, vitae commodo urna porta at. Ut maximus semper ultrices. </p>
+    </div>
+    <div class="article" id="days">
+        <a name="day2"></a>
+        <h2>Wednesday 10 August 2016</h2>
+        <p>First golf game, 9-holes at Gleneagles.
+        Played with James Chou, good golfer</p>
+        <p>Beers afterwards on the patio at Gleneagles GC.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis dolor eu eleifend tincidunt. Etiam nec vestibulum arcu. Nulla facilisi. Mauris luctus efficitur odio ut bibendum. Donec bibendum elit in dolor tincidunt, quis cursus magna convallis. Donec venenatis aliquet lectus, vitae commodo urna porta at. Ut maximus semper ultrices. </p>
+    </div>
+    <div class="article" id="days">
+        <a name="day3"></a>
+        <h2>Thursday 11 August 2016</h2>
+        <p>Big golf game at Fort Langley GC.
+        Terry 15 handicap and Rolly 25 handicap versus Kevin 19 handicap and Barry 19 handicap</p>
+        <p>Terry plays great golf.
+        Rolly incredibly sinks two putts in a row to clinch the game!</pi>
+        <p>Beers afterwards on the patio at Fort Langley GC.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis dolor eu eleifend tincidunt. Etiam nec vestibulum arcu. Nulla facilisi. Mauris luctus efficitur odio ut bibendum. Donec bibendum elit in dolor tincidunt, quis cursus magna convallis. Donec venenatis aliquet lectus, vitae commodo urna porta at. Ut maximus semper ultrices. </p>
+    </div>
+    <div class="article" id="days">
+        <a name="day4"></a>
+        <h2>Friday 12 August 2016</h2>
+        <p>Terry cycles to the Seymour Demonstration Forest 13 km each way.</p>
+        <p>Go and pick up the other bike at Martin's place.</p>
+        <p>Terry and Kevin take the bikes to ride on the dykes on the side of the Pitt River.
+        Stop at the Pitt Meadows GC to have a post-game beer, even though we didn't play.</p>
+       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lobortis dolor eu eleifend tincidunt. Etiam nec vestibulum arcu. Nulla facilisi. Mauris luctus efficitur odio ut bibendum. Donec bibendum elit in dolor tincidunt, quis cursus magna convallis. Donec venenatis aliquet lectus, vitae commodo urna porta at. Ut maximus semper ultrices. </p>
+    </div>
+    <div class="article" id="days">
+        <a name="day5"></a>
+        <h2>Saturday 13 August 2016</h2>
+        <p>We go on the BC Ferry to Vancouver Island.
+        Drive to the Tssawwassen Ferry terminal and walk on.</p>
+        <p>Tom picks us up on the Vancouver Island side and takes us to see the Law Facility at U. Vic.</p>
+        <p>Lunch at an Italian restaurant in downtown Victoria for Tom's birthday (12 August) joined by David and Jenny and family.</p>
+        <p>Tom takes us on a drive around Oak Bay and Uplands suburbs of Victoria.
+        Terry is amazed at the properties.</p>
+        <p>Ride home on the 6PM ferry and Isla is very sweet.
+        <img src=./images/Isla_on_ferry.JPG style="image-orientation: 90deg;" /></p>
+    </div>
+    <div class="article" id="days">
+        <a name="day6"></a>
+        <h2>Sunday 14 August 2016</h2>
+        <p>Time to say goodbye!</p>
+    </div>
+</div>
+</body>
+</html>
